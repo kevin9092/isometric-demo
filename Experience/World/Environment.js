@@ -33,11 +33,9 @@ export default class Environment {
     sunLightFolder.add(this.sunLight.position, "x", -30, 30);
     sunLightFolder.add(this.sunLight.position, "y", -30, 30);
     sunLightFolder.add(this.sunLight.position, "z", -30, 30);
-    sunLightFolder.open();
 
     const ambientLightFolder = this.experience.gui.addFolder("AmbientLight");
     ambientLightFolder.add(this.ambientLight, "intensity", 0, 10);
-    ambientLightFolder.open();
   }
 
   resize() {}

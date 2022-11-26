@@ -18,6 +18,7 @@ export default class Experience {
       return Experience.instance;
     }
     Experience.instance = this;
+    this.gui = new GUI();
     this.canvas = canvas;
     this.scene = new THREE.Scene();
     this.time = new Time();
@@ -26,7 +27,6 @@ export default class Experience {
     this.renderer = new Renderer();
     this.resources = new Resources(assets);
     this.world = new World();
-    this.gui = new GUI();
 
     this.sizes.on("resize", () => {
       this.resize();

@@ -27,7 +27,12 @@ export default class Controls {
 
     //Create final object to add to the scene
     const curveObject = new THREE.Line(geometry, material);
+    curveObject.visible = false;
     this.scene.add(curveObject);
+
+    if (this.experience.gui === undefined) return;
+    const pathHelperFolder = this.experience.gui.addFolder("PathHelpers");
+    pathHelperFolder.add(curveObject, "visible", 0, 1);
   }
 
   resize() {}

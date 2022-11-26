@@ -41,16 +41,32 @@ export default class Camera {
 
     // Camera Helper
     this.helper = new THREE.CameraHelper(this.orthographicCamera);
+    this.helper.visible = false;
     this.scene.add(this.helper);
 
     const size = 10;
     const divisions = 10;
 
-    const gridHelper = new THREE.GridHelper(size, divisions);
-    this.scene.add(gridHelper);
+    // Grid Helper
+    this.gridHelper = new THREE.GridHelper(size, divisions);
+    this.gridHelper.visible = false;
+    this.scene.add(this.gridHelper);
 
-    const axesHelper = new THREE.AxesHelper(10);
-    this.scene.add(axesHelper);
+    // Axes Helper
+    this.axesHelper = new THREE.AxesHelper(10);
+    this.axesHelper.visible = false;
+    this.scene.add(this.axesHelper);
+
+    if (this.experience.gui !== undefined) {
+      const cameraHelperFolder = this.experience.gui.addFolder("CameraHelpers");
+      cameraHelperFolder.add(this.helper, "visible", 0, 1);
+
+      const gridHelperFolder = this.experience.gui.addFolder("GridHelpers");
+      gridHelperFolder.add(this.gridHelper, "visible", 0, 1);
+
+      const axesHelperFolder = this.experience.gui.addFolder("AxesHelpers");
+      axesHelperFolder.add(this.axesHelper, "visible", 0, 1);
+    }
   }
 
   setOrbitControls() {

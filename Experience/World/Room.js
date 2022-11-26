@@ -47,7 +47,6 @@ export default class Room {
         fishTankFolder.add(child.material, "roughness", 0, 1);
         fishTankFolder.add(child.material, "ior", 0, 10);
         fishTankFolder.add(child.material, "transmission", 0, 1);
-        fishTankFolder.open();
       }
 
       if (child.name === "Monitor_Screen") {

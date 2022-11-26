@@ -14,3 +14,7 @@
   width:100%;
   height:100%;
 }
+
+.dg li.gui-stats:not(.folder) {
+  height: auto;
+}

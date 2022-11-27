@@ -1,38 +1,39 @@
 import * as THREE from "three";
+import GSAP from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import Experience from "../Experience";
 
 export default class Controls {
   constructor() {
     this.experience = new Experience();
     this.scene = this.experience.scene;
+    this.sizes = this.experience.sizes;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
+    this.camera = this.experience.camera;
+    this.room = this.experience.world.room.roomScene;
+
+    GSAP.registerPlugin(ScrollTrigger);
 
     this.setPath();
   }
 
   setPath() {
-    this.curve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-10, 0, 10),
-      new THREE.Vector3(-5, 5, 5),
-      new THREE.Vector3(0, 0, 0),
-      new THREE.Vector3(5, -5, 5),
-      new THREE.Vector3(10, 5, 5),
-    ]);
-
-    const points = this.curve.getPoints(50);
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-
-    const material = new THREE.LineBasicMaterial({ color: 0xff0000 });
-
-    //Create final object to add to the scene
-    const curveObject = new THREE.Line(geometry, material);
-    curveObject.visible = false;
-    this.scene.add(curveObject);
-
-    if (this.experience.gui === undefined) return;
-    const pathHelperFolder = this.experience.gui.addFolder("PathHelpers");
-    pathHelperFolder.add(curveObject, "visible", 0, 1);
+    this.timeline = new GSAP.timeline();
+    this.timeline.to(this.room.position, {
+      x: () => {
+        return this.sizes.width * 0.002;
+      },
+      scrollTrigger: {
+        trigger: ".first-move",
+        markers: false,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.6,
+        invalidateOnRefresh: true,
+      },
+    });
   }
 
   resize() {}

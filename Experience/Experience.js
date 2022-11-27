@@ -1,12 +1,13 @@
 import * as THREE from "three";
 import { GUI } from "dat-gui";
 
-import Sizes from "./Utils/Size";
+import Sizes from "./Utils/Sizes";
 import Time from "./Utils/Time";
 import Resources from "./Utils/Resources";
 import assets from "./Utils/assets";
 
 import Camera from "./Camera";
+import Theme from "./Theme";
 import Renderer from "./Renderer";
 
 import World from "./World/World";
@@ -18,7 +19,7 @@ export default class Experience {
       return Experience.instance;
     }
     Experience.instance = this;
-    this.gui = new GUI();
+    // this.gui = new GUI();
     this.canvas = canvas;
     this.scene = new THREE.Scene();
     this.time = new Time();
@@ -26,6 +27,7 @@ export default class Experience {
     this.camera = new Camera();
     this.renderer = new Renderer();
     this.resources = new Resources(assets);
+    this.theme = new Theme();
     this.world = new World();
 
     this.sizes.on("resize", () => {

@@ -7,10 +7,12 @@
   --color-pink-light: #e5a1aa;
   --color-green-light: #7ad0ac;
   --color-blue-light: #8395cd;
+  --color-plane-light: #e4e4e4;
 
   /* Dark Theme Variables */
   --color-text-dark: #faf4e5;
   --color-background-dark: #8395cd;
+  --color-plane-dark: #5768a9;
 }
 
 .light-theme {
@@ -19,6 +21,7 @@
   --color-pink: var(--color-pink-light);
   --color-green: var(--color-green-light);
   --color-blue: var(--color-blue-light);
+  --color-plane: var(--color-plane-light);
 }
 
 .dark-theme {
@@ -27,6 +30,7 @@
   --color-pink: var(--color-text-dark);
   --color-green: var(--color-text-dark);
   --color-blue: var(--color-text-dark);
+  --color-plane: var(--color-plane-dark);
 }
 
 * {
@@ -39,7 +43,7 @@ html,
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--color-text);
-  background-color: #e4e4e4;
+  background-color: var(--color-plane);
 }
 
 h1,

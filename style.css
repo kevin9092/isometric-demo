@@ -39,6 +39,7 @@ html,
 body {
   font-family: "Montserrat", sans-serif;
   color: var(--color-text);
+  background-color: #e4e4e4;
 }
 
 h1,

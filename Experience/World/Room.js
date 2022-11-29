@@ -45,10 +45,6 @@ export default class Room {
         });
       }
 
-      if (child.name === "Fish_Tank") {
-        console.log(child);
-      }
-
       if (child.name === "Fish_Tank_Glass") {
         child.material = new THREE.MeshPhysicalMaterial();
         child.material.roughness = 0;
@@ -85,6 +81,7 @@ export default class Room {
     rectLight.position.set(11.396622657775879, 11, -3.5455992698669434);
     rectLight.rotation.x = -Math.PI / 2;
     rectLight.rotation.z = Math.PI / 4;
+    this.roomScene.rectLight = rectLight;
 
     this.roomScene.add(rectLight);
 

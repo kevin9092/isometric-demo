@@ -14,6 +14,7 @@
     "vite": "^3.2.3"
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.5",
     "events": "^3.3.0",
     "stats.js": "^0.17.0",
     "three": "^0.146.0"

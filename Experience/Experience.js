@@ -30,6 +30,20 @@ export default class Experience {
     this.theme = new Theme();
     this.world = new World();
 
+    const fullScreen = document.querySelector(".fullscreen");
+    fullScreen.addEventListener("click", () => {
+      document.body.requestFullscreen();
+      fullScreen.classList.toggle("hidden");
+      fullScreenClose.classList.toggle("hidden");
+    });
+
+    const fullScreenClose = document.querySelector(".fullscreen-close");
+    fullScreenClose.addEventListener("click", () => {
+      document.exitFullscreen();
+      fullScreenClose.classList.toggle("hidden");
+      fullScreen.classList.toggle("hidden");
+    });
+
     this.sizes.on("resize", () => {
       this.resize();
     });

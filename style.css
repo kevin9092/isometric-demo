@@ -64,6 +64,10 @@ svg {
   height: auto;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Experience ----------------------------------------------------*/
 
 .experience {
@@ -88,6 +92,21 @@ svg {
 
 .page-wrapper {
   position: relative;
+}
+
+/* Full Screen -----------------------------------------------------*/
+.fullscreen,
+.fullscreen-close {
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.fullscreen-wrapper {
+  position: fixed;
+  top: 98px;
+  right: 50px;
+  z-index: 9999999999999999;
 }
 
 /* Toggle Bar ------------------------------------------------------*/

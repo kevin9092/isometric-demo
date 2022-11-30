@@ -32,7 +32,7 @@ export default class Experience {
 
     const fullScreen = document.querySelector(".fullscreen");
     fullScreen.addEventListener("click", () => {
-      document.body.requestFullscreen();
+      document.documentElement.requestFullscreen();
       fullScreen.classList.toggle("hidden");
       fullScreenClose.classList.toggle("hidden");
     });

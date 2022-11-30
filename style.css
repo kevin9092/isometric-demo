@@ -46,6 +46,10 @@ body {
   background-color: var(--color-plane);
 }
 
+body:fullscreen {
+  overflow: scroll;
+}
+
 h1,
 h3,
 p,
